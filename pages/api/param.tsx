@@ -52,7 +52,7 @@ export default function handler(req: NextRequest) {
               whiteSpace: "pre-wrap",
             }}
           >
-            <b>Ege Gaz</b>
+            <b>{title}</b>
           </div>
           <div
             style={{
@@ -60,7 +60,7 @@ export default function handler(req: NextRequest) {
               fontSize: "14px",
             }}
           >
-            test
+            {url}
           </div>
         </div>
       ),
