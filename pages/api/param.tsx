@@ -57,7 +57,9 @@ export default function handler(req: NextRequest) {
           <div
             style={{
               color: "white",
-              fontSize: "14px",
+              position: "absolute",
+              bottom: 10,
+              left: 10,
             }}
           >
             {url}
