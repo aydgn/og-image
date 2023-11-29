@@ -16,8 +16,6 @@ export default async function handler(req: NextRequest) {
     const hasUrl = searchParams.has("url");
     const url = hasUrl ? searchParams.get("url")?.slice(0, 100) : "https://www.egegaz.com.tr";
 
-    const logo = await fetch(new URL("./egegaz-logo.png", import.meta.url)).then(res => res.arrayBuffer());
-
     return new ImageResponse(
       (
         <div
@@ -37,7 +35,7 @@ export default async function handler(req: NextRequest) {
             padding: 50,
           }}
         >
-          <img src="{logo}" style={{ width: 260, height: 71 }} />
+          <img src="https://www.egegaz.gricreative.com/assets/image/logo.png" style={{ width: 260, height: 71 }} />
           <div
             style={{
               display: "flex",
