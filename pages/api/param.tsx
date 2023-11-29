@@ -25,7 +25,7 @@ export default async function handler(req: NextRequest) {
             display: "flex",
             textAlign: "center",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-around",
             flexDirection: "column",
             flexWrap: "nowrap",
             backgroundColor: "white",
@@ -33,26 +33,19 @@ export default async function handler(req: NextRequest) {
               "radial-gradient(circle at 25px 25px, #00AFF4 2%, transparent 0%), radial-gradient(circle at 75px 75px, #00AFF4 2%, transparent 0%)",
             backgroundSize: "100px 100px",
             padding: 50,
+            border: "30px solid #0046B4",
           }}
         >
           <img src="https://www.egegaz.gricreative.com/assets/image/logo.png" style={{ width: 260, height: 71 }} />
           <div
             style={{
               display: "flex",
-              fontSize: 45,
-              fontStyle: "normal",
+              fontSize: 90,
               color: "#0046B4",
               whiteSpace: "pre-wrap",
             }}
           >
-            <b>{title}</b>
-          </div>
-          <div
-            style={{
-              color: "#0046B4",
-            }}
-          >
-            {url}
+            <b>Egegaz Orman Haberi Test test dene</b>
           </div>
         </div>
       ),
