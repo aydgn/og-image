@@ -13,9 +13,6 @@ export default async function handler(req: NextRequest) {
     const hasTitle = searchParams.has("title");
     const title = hasTitle ? searchParams.get("title")?.slice(0, 100) : "Ege Gaz";
 
-    const hasUrl = searchParams.has("url");
-    const url = hasUrl ? searchParams.get("url")?.slice(0, 100) : "https://www.egegaz.com.tr";
-
     return new ImageResponse(
       (
         <div
@@ -45,7 +42,7 @@ export default async function handler(req: NextRequest) {
               whiteSpace: "pre-wrap",
             }}
           >
-            <b>Egegaz Orman Haberi Test test dene</b>
+            <b>{title}</b>
           </div>
         </div>
       ),
