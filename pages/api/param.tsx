@@ -5,7 +5,7 @@ export const config = {
   runtime: "edge",
 };
 
-export default function handler(req: NextRequest) {
+export default async function handler(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
 
@@ -16,6 +16,8 @@ export default function handler(req: NextRequest) {
     const hasUrl = searchParams.has("url");
     const url = hasUrl ? searchParams.get("url")?.slice(0, 100) : "https://www.egegaz.com.tr";
 
+    const logo = await fetch(new URL("./egegaz-logo.png", import.meta.url)).then(res => res.arrayBuffer());
+
     return new ImageResponse(
       (
         <div
@@ -25,30 +27,23 @@ export default function handler(req: NextRequest) {
             display: "flex",
             textAlign: "center",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-between",
             flexDirection: "column",
             flexWrap: "nowrap",
-            backgroundColor: "#00AFF4",
+            backgroundColor: "white",
             backgroundImage:
-              "radial-gradient(circle at 25px 25px, white 2%, transparent 0%), radial-gradient(circle at 75px 75px, white 2%, transparent 0%)",
+              "radial-gradient(circle at 25px 25px, #00AFF4 2%, transparent 0%), radial-gradient(circle at 75px 75px, #00AFF4 2%, transparent 0%)",
             backgroundSize: "100px 100px",
+            padding: 50,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          ></div>
+          <img src="{logo}" style={{ width: 260, height: 71 }} />
           <div
             style={{
               display: "flex",
               fontSize: 45,
               fontStyle: "normal",
-              color: "white",
-              marginTop: 30,
-              lineHeight: 1.8,
+              color: "#0046B4",
               whiteSpace: "pre-wrap",
             }}
           >
@@ -56,17 +51,13 @@ export default function handler(req: NextRequest) {
           </div>
           <div
             style={{
-              color: "white",
-              position: "absolute",
-              bottom: 10,
-              left: 10,
+              color: "#0046B4",
             }}
           >
             {url}
           </div>
         </div>
       ),
-
       {
         width: 1200,
         height: 630,
