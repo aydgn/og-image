@@ -27,13 +27,12 @@ export default async function handler(req: NextRequest) {
             flexWrap: "nowrap",
             backgroundColor: "white",
             backgroundImage:
-              "radial-gradient(circle at 25px 25px, #00AFF4 2%, transparent 0%), radial-gradient(circle at 75px 75px, #00AFF4 2%, transparent 0%)",
+              "radial-gradient(circle at 25px 25px, #0046B4 2%, transparent 0%), radial-gradient(circle at 75px 75px, #0046B4 2%, transparent 0%)",
             backgroundSize: "100px 100px",
             padding: 50,
             border: "30px solid #0046B4",
           }}
         >
-          <img src="https://www.egegaz.gricreative.com/assets/image/logo.png" style={{ width: 260, height: 71 }} />
           <div
             style={{
               display: "flex",
@@ -44,6 +43,7 @@ export default async function handler(req: NextRequest) {
           >
             <b>{title}</b>
           </div>
+          <img src="https://www.egegaz.gricreative.com/assets/image/logo.png" style={{ width: 260, height: 71 }} />
         </div>
       ),
       {
