@@ -10,8 +10,8 @@ export default async function handler(req: NextRequest) {
     const { searchParams } = new URL(req.url);
 
     // ?title=<title>
-    const hasTitle = searchParams.has("title");
-    const title = hasTitle ? searchParams.get("title")?.slice(0, 100) : "Ege Gaz";
+    const hasTitle = searchParams.has("t");
+    const title = hasTitle ? searchParams.get("t")?.slice(0, 100) : "Ege Gaz";
 
     return new ImageResponse(
       (
