@@ -1,9 +1,7 @@
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 
-export const config = {
-  runtime: "edge",
-};
+export const config = { runtime: "edge" };
 
 export default async function handler(req: NextRequest) {
   try {
@@ -11,7 +9,7 @@ export default async function handler(req: NextRequest) {
 
     // ?title=<title>
     const hasTitle = searchParams.has("t");
-    const title = hasTitle ? searchParams.get("t")?.slice(0, 100) : "Ege Gaz";
+    const title = hasTitle ? searchParams.get("t").trim().slice(0, 40) : "EGE GAZ";
 
     return new ImageResponse(
       (
@@ -33,17 +31,22 @@ export default async function handler(req: NextRequest) {
             border: "30px solid #0046B4",
           }}
         >
-          <div
+          <b
             style={{
-              display: "flex",
-              fontSize: 90,
+              fontSize: 120,
               color: "#0046B4",
-              whiteSpace: "pre-wrap",
+              padding: 0,
+              margin: 0,
+              lineHeight: 0.9,
+              wordBreak: "break-word",
+              wordWrap: "break-word",
+              textOverflow: "ellipsis",
+              fontWeight: 900,
             }}
           >
-            <b>{title}</b>
-          </div>
-          <img src="https://www.egegaz.gricreative.com/assets/image/logo.png" style={{ width: 260, height: 71 }} />
+            {title}
+          </b>
+          <img src="https://www.egegaz.gricreative.com/assets/svg/logo.svg" style={{ width: 260, height: 71 }} />
         </div>
       ),
       {
